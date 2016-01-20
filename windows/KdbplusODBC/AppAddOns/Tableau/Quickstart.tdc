@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<connection-customization class='genericodbc' enabled='true' version='8.0'>
+	<vendor name='TEXT' />
+	<driver name='Quickstart' />
+	<customizations>
+        <customization name='CAP_ODBC_USE_NATIVE_PROTOCOL' value='yes' />
+		<customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='yes' />
+		<customization name='CAP_SKIP_CONNECT_VALIDATION' value='yes' />
+		<customization name='CAP_SUPPRESS_DISPLAY_LIMITATIONS' value='yes' />
+		<customization name='CAP_CREATE_TEMP_TABLES' value='no' />
+		<customization name='CAP_ODBC_CURSOR_DYNAMIC' value='no' />
+		<customization name='CAP_ODBC_CURSOR_FORWARD_ONLY' value='yes' />
+		<customization name='CAP_ODBC_CURSOR_KEYSET_DRIVEN' value='no' />
+		<customization name='CAP_ODBC_CURSOR_STATIC' value='no' />
+		<customization name='CAP_ODBC_UNBIND_AUTO' value='yes' />
+		<customization name='CAP_QUERY_GROUP_BY_DEGREE' value='yes' />
+		<customization name='CAP_QUERY_JOIN_ACROSS_SCHEMAS' value='yes' />
+		<customization name='CAP_QUERY_SORT_BY_DEGREE' value='yes' />
+		<customization name='CAP_QUERY_SUBQUERIES' value='yes' />
+		<customization name='CAP_QUERY_SUBQUERIES_WITH_TOP' value='yes' />
+		<customization name='CAP_QUERY_SUBQUERY_QUERY_CONTEXT' value='yes' />
+		<customization name='CAP_QUERY_TOP_N' value='yes' />
+		<customization name='CAP_QUERY_TOPSTYLE_TOP' value='yes' />
+		<customization name='CAP_QUERY_TOP_0_METADATA' value='no' />
+		<customization name='CAP_QUERY_WHERE_FALSE_METADATA' value='no' />
+		<customization name='CAP_SELECT_INTO' value='no' />
+		<customization name='CAP_SELECT_TOP_INTO' value='yes' />
+		<customization name='CAP_SUPPRESS_CONNECTION_POOLING' value='no' />
+		<customization name='SQL_AGGREGATE_FUNCTIONS' value='127' />
+		<customization name='SQL_CATALOG_NAME_SEPARATOR' value='.' />
+		<customization name='SQL_CATALOG_TERM' value='catalog' />
+		<customization name='SQL_CATALOG_USAGE' value='4' />
+		<customization name='SQL_COLUMN_ALIAS' value='Y' />
+		<customization name='SQL_CONVERT_BIGINT' value='16285695' />
+		<customization name='SQL_CONVERT_BINARY' value='14946049' />
+		<customization name='SQL_CONVERT_BIT' value='14974975' />
+		<customization name='SQL_CONVERT_CHAR' value='33554431' />
+		<customization name='SQL_CONVERT_DATE' value='14847745' />
+		<customization name='SQL_CONVERT_DECIMAL' value='16278527' />
+		<customization name='SQL_CONVERT_DOUBLE' value='16285695' />
+		<customization name='SQL_CONVERT_FLOAT' value='16285695' />
+		<customization name='SQL_CONVERT_FUNCTIONS' value='3' />
+		<customization name='SQL_CONVERT_GUID' value='31461121' />
+		<customization name='SQL_CONVERT_INTEGER' value='16285695' />
+		<customization name='SQL_CONVERT_INTERVAL_DAY_TIME' value='15757087' />
+		<customization name='SQL_CONVERT_LONGVARBINARY' value='14946049' />
+		<customization name='SQL_CONVERT_NUMERIC' value='16278527' />
+		<customization name='SQL_CONVERT_REAL' value='16285695' />
+		<customization name='SQL_CONVERT_SMALLINT' value='16285695' />
+		<customization name='SQL_CONVERT_TIME' value='14880513' />
+		<customization name='SQL_CONVERT_TIMESTAMP' value='14913281' />
+		<customization name='SQL_CONVERT_TINYINT' value='16285695' />
+		<customization name='SQL_CONVERT_VARBINARY' value='14946049' />
+		<customization name='SQL_CONVERT_VARCHAR' value='33554431' />
+		<customization name='SQL_DATETIME_LITERALS' value='65535' />
+		<customization name='SQL_DBMS_NAME' value='TEXT' />
+		<customization name='SQL_DBMS_VER' value='00.00.0000' />
+		<customization name='SQL_DRIVER_ODBC_VER' value='03.80' />
+		<customization name='SQL_DRIVER_VER' value='09.03.0012' />
+		<customization name='SQL_IDENTIFIER_QUOTE_CHAR' value='&quot;' />
+		<customization name='SQL_MAX_IDENTIFIER_LEN' value='255' />
+		<customization name='SQL_NUMERIC_FUNCTIONS' value='16777215' />
+		<customization name='SQL_ODBC_INTERFACE_CONFORMANCE' value='1' />
+		<customization name='SQL_ODBC_VER' value='03.80.0000' />
+		<customization name='SQL_OJ_CAPABILITIES' value='127' />
+		<customization name='SQL_QUOTED_IDENTIFIER_CASE' value='3' />
+		<customization name='SQL_SCHEMA_TERM' value='schema' />
+		<customization name='SQL_SCHEMA_USAGE' value='0' />
+		<customization name='SQL_SPECIAL_CHARACTERS' value='' />
+		<customization name='SQL_SQL92_DATETIME_FUNCTIONS' value='7' />
+		<customization name='SQL_SQL92_NUMERIC_VALUE_FUNCTIONS' value='0' />
+		<customization name='SQL_SQL92_PREDICATES' value='16135' />
+		<customization name='SQL_SQL92_RELATIONAL_JOIN_OPERATORS' value='346' />
+		<customization name='SQL_SQL92_STRING_FUNCTIONS' value='6' />
+		<customization name='SQL_SQL92_VALUE_EXPRESSIONS' value='13' />
+		<customization name='SQL_SQL_CONFORMANCE' value='1' />
+		<customization name='SQL_STRING_FUNCTIONS' value='491519' />
+		<customization name='SQL_SYSTEM_FUNCTIONS' value='7' />
+		<customization name='SQL_TABLE_TERM' value='table' />
+		<customization name='SQL_TIMEDATE_ADD_INTERVALS' value='511' />
+		<customization name='SQL_TIMEDATE_DIFF_INTERVALS' value='511' />
+		<customization name='SQL_TIMEDATE_FUNCTIONS' value='1048575' />
+	</customizations>
+</connection-customization>

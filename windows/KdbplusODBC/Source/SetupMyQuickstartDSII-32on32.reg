@@ -1,0 +1,69 @@
+REGEDIT4
+
+; This registry file is for 32-bit data sources on 32-bit Windows.
+; Make sure to replace all instances of [INSTALL_DIRECTORY] with the installation directory for SimbaEngine before merging with Windows Registry.
+; Notice the double backslashes in the following example: 
+;   "C:\\Simba Technologies"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources]
+"MyQuickstartDSII"="MyQuickstartDSIIDriver"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\MyQuickstartDSII]
+"Driver"="MyQuickstartDSIIDriver"
+"DBF"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Examples\\Databases\\Quickstart"
+"Description"="My 32-bit SimbaEngine Quickstart DSII"
+"Locale"="en-US"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers]
+"MyQuickstartDSIIDriver"="Installed"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\MyQuickstartDSIIDriver]
+"Setup"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Examples\\Source\\Quickstart\\Bin\\win32\\debug\\QuickstartDSII_Debug.dll"
+"Driver"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Examples\\Source\\Quickstart\\Bin\\win32\\debug\\QuickstartDSII_Debug.dll"
+"Description"="My 32-bit SimbaEngine Quickstart DSII"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Server]
+"LogLevel"="0"
+"LogNamespace"=""
+"LogPath"=""
+"DBF"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Examples\\Databases\\Quickstart"
+"DriverManagerEncoding"="UTF-16"
+"DriverLocale"="en-US"
+"ErrorMessagesPath"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\DataAccessComponents\\ErrorMessages"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Server\Network]
+"MaxConnections"="64"
+"ListenAddress"=""
+"ConnectionIdleTimeout"="86400"
+"ListenPort"="12345"
+"UseSsl"="0"
+"SslCertfile"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Documentation\\SSLCertificates\\SampleServerCertificate.pem"
+"SslKeyFile"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\Documentation\\SSLCertificates\\SampleServerKey.pem"
+"MaxDataChunkSize"="65550"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Server\Admin]
+"UseSignaling"="Yes"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Server\Buffers]
+"BufferAllocationSize"="8192"
+"PreAllocatedBuffers"="1000"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Server\Threads]
+"MinWorkerThreads"="10"
+"TaskQueueTimeout"="1000"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\Quickstart\Driver]
+"LogLevel"="0"
+"LogPath"=""
+"LogNamespace"=""
+"DriverManagerEncoding"="UTF-16"
+"DriverLocale"="en-US"
+"ErrorMessagesPath"="[INSTALL_DIRECTORY]\\SimbaEngineSDK\\9.5\\DataAccessComponents\\ErrorMessages"

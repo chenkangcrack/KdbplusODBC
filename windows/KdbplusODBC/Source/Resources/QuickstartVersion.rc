@@ -1,0 +1,136 @@
+//==================================================================================================
+///  @file QuickstartVersion.h
+///
+///  Quickstart Resource Script
+///
+///  Copyright (C) 2009-2014 Simba Technologies Incorporated.
+//==================================================================================================
+
+#include "VersionResource.h"
+
+// Windows header file
+#include <winver.h>
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "windows.h"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "ProductVersion.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (US) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "VersionResource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""windows.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""VersionResource.h""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION VER_FILEVERSION
+ PRODUCTVERSION VER_PRODUCTVERSION
+ FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+
+#ifdef _DEBUG
+ FILEFLAGS VS_FF_DEBUG
+#else
+ FILEFLAGS 0x0L
+#endif //_DEBUG
+
+#ifdef _WIN32
+ FILEOS VOS__WINDOWS32
+#else
+ FILEOS VOS_UNKNOWN // There are no definitions for Windows 64-bit
+#endif //_WIN32
+ 
+#ifndef SERVERTARGET
+ FILETYPE VFT_DLL
+#else
+ FILETYPE VFT_APP
+#endif
+ FILESUBTYPE VFT2_UNKNOWN //Not VFT_WINDOWS_DRV
+
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK USENGLISH_UNICODE
+        BEGIN
+            VALUE "CompanyName", VER_COMPANYNAME_STR
+            VALUE "FileDescription", VER_FILEDESC_STR
+            VALUE "FileVersion", VER_FILEVERSION_STR
+            VALUE "InternalName", VER_NAME_STR
+            VALUE "LegalCopyright", VER_LEGALCOPYRIGHT_STR
+            VALUE "LegalTrademarks", VER_LEGALTRADEMARKS_STR
+            VALUE "ProductName", VER_PRODUCTNAME_STR
+            VALUE "VersionResource", VER_PRODUCTVERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        /* The following line should only be modified for localized versions.     */
+        /* It consists of any number of WORD,WORD pairs, with each pair           */
+        /* describing a language,codepage combination supported by the file.      */
+        /*                                                                        */
+        /* For example, a file might have values "0x409,1252" indicating that it  */
+        /* supports English language (0x409) in the Windows ANSI codepage (1252). */
+
+        VALUE "Translation", 0x9, 1200
+    END
+END
+
+#endif    // English (US) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

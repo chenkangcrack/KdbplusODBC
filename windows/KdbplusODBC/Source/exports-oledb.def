@@ -1,0 +1,13 @@
+
+
+SECTIONS
+
+EXPORTS
+
+
+    DllMain          		
+	DllGetClassObject       PRIVATE
+	DllCanUnloadNow         PRIVATE
+	DllUnregisterServer     PRIVATE
+	DllRegisterServer       PRIVATE
+    

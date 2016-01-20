@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Common\QSTableMetadataFile.cpp" />
+    <ClCompile Include="Core\QSConnection.cpp" />
+    <ClCompile Include="Core\QSConnectionDialog.cpp" />
+    <ClCompile Include="Core\QSDriver.cpp" />
+    <ClCompile Include="Core\QSEnvironment.cpp" />
+    <ClCompile Include="Core\QSStatement.cpp" />
+    <ClCompile Include="DataEngine\QSDataEngine.cpp" />
+    <ClCompile Include="DataEngine\QSMetadataHelper.cpp" />
+    <ClCompile Include="DataEngine\QSTable.cpp" />
+    <ClCompile Include="DataEngine\QSTableUtilities.cpp" />
+    <ClCompile Include="DataEngine\QSTypeInfoMetadataSource.cpp" />
+    <ClCompile Include="Common\QSUtilities_Windows.cpp" />
+    <ClCompile Include="Common\TabbedUnicodeFileReader.cpp" />
+    <ClCompile Include="Main_Windows.cpp" />
+    <ClCompile Include="Setup\ConfigDSN.cpp" />
+    <ClCompile Include="Setup\QSBaseDialog.cpp" />
+    <ClCompile Include="Setup\QSDSNConfiguration.cpp" />
+    <ClCompile Include="Setup\QSLoggingDialog.cpp" />
+    <ClCompile Include="Setup\QSMainDialog.cpp" />
+    <ClCompile Include="Setup\QSResourceHelper.cpp" />
+    <ClCompile Include="Setup\QSSetupException.cpp" />
+    <ClCompile Include="Setup\QSTestResultDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Core\QSConnection.h" />
+    <ClInclude Include="Core\QSConnectionDialog.h" />
+    <ClInclude Include="Core\QSDriver.h" />
+    <ClInclude Include="Core\QSEnvironment.h" />
+    <ClInclude Include="Core\QSStatement.h" />
+    <ClInclude Include="DataEngine\QSDataEngine.h" />
+    <ClInclude Include="DataEngine\QSMetadataHelper.h" />
+    <ClInclude Include="Resources\resource.h" />
+    <ClInclude Include="Resources\VersionResource.h" />
+    <ClInclude Include="Setup\QSBaseDialog.h" />
+    <ClInclude Include="Setup\QSDialogConsts.h" />
+    <ClInclude Include="Setup\QSDSNConfiguration.h" />
+    <ClInclude Include="Setup\QSLoggingDialog.h" />
+    <ClInclude Include="Setup\QSMainDialog.h" />
+    <ClInclude Include="Setup\QSResourceHelper.h" />
+    <ClInclude Include="Setup\QSSetupException.h" />
+    <ClInclude Include="Setup\QSTestResultDialog.h" />
+    <ClInclude Include="DataEngine\QSTableUtilities.h" />
+    <ClInclude Include="DataEngine\QSTypeInfoMetadataSource.h" />
+    <ClInclude Include="Common\QSTableMetadataFile.h" />
+    <ClInclude Include="Common\QSUtilities.h" />
+    <ClInclude Include="Common\TabbedUnicodeFileReader.h" />
+    <ClInclude Include="Quickstart.h" />
+    <ClInclude Include="k.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resources\Dialogs.rc" />
+    <ResourceCompile Include="Resources\QuickstartVersion.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\simba.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\ErrorMessages\en-US\QSMessages.xml" />
+    <None Include="exports.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include">
+      <UniqueIdentifier>{97d27f75-3dc9-4af4-a6a1-8af8472e7351}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="c.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="c.obj" />
+  </ItemGroup>
+</Project>

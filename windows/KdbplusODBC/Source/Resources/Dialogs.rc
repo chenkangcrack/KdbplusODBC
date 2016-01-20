@@ -1,0 +1,239 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "windows.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (United States) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_DSN_CONFIG DIALOGEX 0, 0, 322, 103
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Data Source Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Data Source Name:",IDC_STATIC_DSN,11,10,71,8
+    EDITTEXT        IDC_EDIT_DSN,86,7,229,14,ES_AUTOHSCROLL
+    LTEXT           "Description:",IDC_STATIC_DESC,11,28,71,8
+    EDITTEXT        IDC_EDIT_DESC,86,26,229,14,ES_AUTOHSCROLL
+    LTEXT           "Data Directory:",IDC_STATIC_DBF,11,46,69,8
+    EDITTEXT        IDC_EDIT_DBF,86,44,177,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Logging Options...",IDC_BUTTON_LOGGING,221,63,94,14
+    PUSHBUTTON      "Test...",IDC_BUTTON_TEST,156,82,50,14
+    DEFPUSHBUTTON   "OK",IDOK,210,82,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,265,82,50,14
+    LTEXT           "v.xxxx (xx-bit)",IDC_STATIC_VERSION,7,85,91,8
+    PUSHBUTTON      "Browse...",IDC_BUTTON_BROWSE,265,44,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_DSN_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 315
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // English (United States) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (Canada) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENC)
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
+#pragma code_page(1252)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_LOGGING DIALOGEX 0, 0, 272, 123
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Logging Configuration"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Log &Level:",IDC_STATIC_LOGLEVEL,8,11,55,8
+    COMBOBOX        IDC_COMBO_LOGLEVEL,69,9,196,90,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Log &Directory:",IDC_STATIC_LOGPATH,8,29,58,8
+    EDITTEXT        IDC_EDIT_LOGPATH,69,27,141,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "&Browse...",IDC_BUTTON_BROWSE,213,26,50,14
+    GROUPBOX        "Log Rotation",IDC_STATIC_ROTATION,6,47,260,50
+    LTEXT           "Max &Number Files:",IDC_STATIC_LOGNUM,14,62,60,8
+    EDITTEXT        IDC_EDIT_LOGNUM,82,58,176,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Max File &Size (MB):",IDC_STATIC_LOGSIZE,14,78,60,8
+    EDITTEXT        IDC_EDIT_LOGSIZE,82,76,176,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,160,104,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,216,104,50,14
+END
+
+IDD_DIALOG_TESTRESULT DIALOGEX 0, 0, 289, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Test Results"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,233,66,50,14
+    EDITTEXT        IDC_EDIT_TESTRESULT,7,7,275,53,ES_MULTILINE | ES_READONLY | WS_VSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_LOGGING, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 133
+    END
+
+    IDD_DIALOG_TESTRESULT, DIALOG
+    BEGIN
+        RIGHTMARGIN, 283
+        BOTTOMMARGIN, 81
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE
+BEGIN
+    "#include ""windows.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "simba.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_INVALID_HWND  "Invalid window handle."
+    IDS_ERROR_INVALID_KEYWORD_VALUE "Invalid keyword-value pairs."
+    IDS_ERROR_INVALID_NAME  "Invalid driver or translator name."
+    IDS_ERROR_INVALID_REQUEST_TYPE "Invalid type of request."
+    IDS_ERROR_REQUEST_FAILED "Request failed."
+    IDS_ERROR_DRIVER_SPECIFIC "Driver- or translator-specific error."
+    IDS_ERROR_SETUP_DSN_EMPTY_DSN "Data Source Name value cannot be empty."
+    IDS_CONFIG_ERROR_TITLE  "DSN Configuration Error"
+    IDS_ERROR_SETUP_DSN_INVALID_DSN
+                            "Data Source Name value cannot contain any of the following characters: []{}(),;?*=!@\\"
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_SETUP_DSN_INVALID_DSN_TITLE "Invalid Data Source Name"
+    IDS_ERROR_REGISTRY_WRITE
+                            "Error writing changes to registry, ensure proper permissions have been granted."
+    IDS_BUTTON_OK           "OK"
+    IDS_BUTTON_CANCEL       "Cancel"
+    IDS_BUTTON_TEST         "Test..."
+    IDS_BUTTON_LOGGING      "Logging Options..."
+    IDS_BROWSE_TITLE        "Select Data Directory"
+    IDS_STATIC_VERSION_32   " (32 bit)"
+    IDS_STATIC_VERSION_64   " (64 bit)"
+    IDS_MAIN_TITLE          "Quickstart ODBC Driver DSN Setup"
+    IDS_STATIC_DSN          "Data Source Name:"
+    IDS_STATIC_DESC         "Description:"
+    IDS_LOGGING_TITLE       "Logging Options"
+    IDS_STATIC_LOGLEVEL     "Log Level:"
+    IDS_STATIC_LOGPATH      "Log Path:"
+    IDS_BROWSE_LOG_TITLE    "Choose log file target directory."
+END
+
+STRINGTABLE
+BEGIN
+    IDS_ERROR_INVALID_DBF   "Invalid Data Directory path, the entry must point to a valid directory."
+    IDS_TEST_RESULT_TITLE   "Test Results"
+    IDS_TEST_FAILURE        "FAILED!\r\n\r\n"
+    IDS_TEST_SUCCESS        "SUCCESS! \r\n\r\nSuccessfully connected to data source!"
+    IDS_STATIC_DBF          "Data Directory:"
+    IDS_BUTTON_BROWSE       "Browse..."
+    IDS_STATIC_LOGNUM       "Max Number Files:"
+    IDS_STATIC_LOGSIZE      "Max File Size (MB):"
+    IDS_STATIC_ROTATION     "Log Rotation"
+    IDS_CONN_MAIN_TITLE     "Quickstart ODBC Driver Connection Dialog"
+    IDS_ERROR_INVALID_MAX_LOG_NUM
+                            "Invalid value for the maximum number of log files to use in rotation, valid values are [0, 4294967295]."
+    IDS_ERROR_INVALID_MAX_LOG_SIZE
+                            "Invalid value for the maximum size of each log file in MB, valid values are [0, 4096]."
+END
+
+#endif    // English (Canada) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

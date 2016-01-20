@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Messages [
+    <!ELEMENT Messages (Package*)>
+
+    <!ELEMENT Package (Error*)>
+    <!ATTLIST Package ID CDATA #REQUIRED>
+    <!ATTLIST Package DefaultComponent CDATA #REQUIRED>
+
+    <!ELEMENT Error (#PCDATA)>
+    <!ATTLIST Error Key ID #REQUIRED>
+    <!ATTLIST Error Component CDATA #IMPLIED>
+    <!ATTLIST Error NativeErrorCode CDATA #REQUIRED>
+    <!ATTLIST Error Params CDATA "0">
+]>
+
+<Messages>
+    <!-- SQL_ENGINE_ERROR ERRORS (30000 to 39999) -->
+    <Package ID="4" DefaultComponent="SQLEngine">
+
+        <!-- GENERAL ERRORS (30000 to 30999) -->
+
+        <!-- [HY000]: General logic error. -->
+        <Error Key="LogicError" Params="2" NativeErrorCode="30000">Logic error [%1%: %2%].</Error>
+
+        <!-- [HY000]: Invalid AE tree found. -->
+        <Error Key="InvalidAET" Params="2" NativeErrorCode="30010">Invalid AE tree [%1%: %2%].</Error>
+
+        <!-- [HY000]: Invalid parse tree found. -->
+        <Error Key="InvalidParseTree" Params="2" NativeErrorCode="30040">Invalid parse tree [%1%: %2%].</Error>
+
+        <!-- [HY000]: Lexer/Scanner initialization failure. -->
+        <Error Key="LexerScannerInitFail" NativeErrorCode="30050">Lexer/Scanner initialization failure.</Error>
+
+        <!-- [HY000]: Stored procedure not found. -->
+        <Error Key="StoredProcedureNotFound" Params="1" NativeErrorCode="30070">Stored procedure not found: %1%</Error>
+
+        <!-- [HY000]: Duplicate parameter index registered. -->
+        <Error Key="DuplicateParameterIndex" Params="1" NativeErrorCode="30080">Duplicate parameter index registered for stored procedure: %1%</Error>
+
+        <!-- [HY000]: Invalid parameter index registered. -->
+        <Error Key="InvalidParameterIndex" Params="1" NativeErrorCode="30090">Invalid parameter index registered for stored procedure: %1%</Error>
+
+        <!-- [HY000]: Return value is registered at a position that isn't the first. -->
+        <Error Key="InvalidReturnValueIndex" NativeErrorCode="30100">Return values must have an index of 0.</Error>
+
+        <!-- [HY000]: Invalid number of parameters supplied for stored procedure. -->
+        <Error Key="InvalidNumberProcedureParameters" Params="3" NativeErrorCode="30110">Invalid number of parameters for stored procedure '%1%'. Expected: %2%; Received: %3%</Error>
+
+        <!-- [HY000]: Invalid number of results supplied by stored procedure. -->
+        <Error Key="InvalidNumberStoredProcedureResults" NativeErrorCode="30120">Stored procedures may only return one result.</Error>
+      
+        <!-- [HY000]: Output parameter cannot be a default parameter. -->
+        <Error Key="InvalidDefaultParam" Params="1" NativeErrorCode="30130">Stored procedure argument %1% cannot be default. Only input and input_output parameters can be default.</Error>
+      
+        <!-- [HY000]: SQL_DEFAULT_PARAM cannot be specified for a parameter that does not have a default value. -->
+        <Error Key="DefaultSpecForNonDefaultParam" Params="1" NativeErrorCode="30140">Parameter %1% cannot be default because it does not have a default value.</Error>
+
+        <!-- [HY000]: Error thrown when an invalid data engine property is specified -->
+        <Error Key="InvalidDataEngineProp" Params="1" NativeErrorCode="30141">Invalid data engine property: %1%</Error>
+
+        <!-- [HY000]: Cannot create collator for language. -->
+        <Error Key="CannotCreateCollator" Params="1" NativeErrorCode="30142">Cannot create collator for language: %1%</Error>
+
+        <!-- [HY000]: Unsupported type found. -->
+        <Error Key="TypeUnsupported" Params="1" NativeErrorCode="30160">%1% is unsupported.</Error>
+
+        <!-- [HY000]: Trying to push fixed length data in parts. -->
+        <Error Key="CantPushFixedLengthDataInParts" NativeErrorCode="30170">Fixed length parameter data cannot be pushed in parts.</Error>
+
+        <!-- [HY000]: The pushed parameter data length exceeds the maximum. -->
+        <Error Key="PushedParamDataTooLarge" NativeErrorCode="30180">Pushed parameter data exceeds the maximum length.</Error>
+
+        <!-- [HY000]: Cannot convert the pushed parameter value. -->
+        <Error Key="InvalidPushedParamConversion" NativeErrorCode="30190">Error converting pushed parameter value.</Error>
+
+        <!-- [HY000]: Cannot query parameter values which may change during execution. -->
+        <Error Key="CannotQueryParameterValueDuringPassdown" NativeErrorCode="30200">Cannot query parameter value during passdown, as it may vary during execution.</Error>
+
+        <!-- SQL Errors. (31000 to 39999) -->
+        <!-- Sorted by SQLState and the keys. -->
+      
+        <!-- [07006]: General Restricted data type attribute violation errors. -->
+        <Error Key="RestrictedDataTypeViolation" NativeErrorCode="31020">Restricted data type attribute violation.</Error>
+
+        <!-- [07006]: Scalar function CONVERT does not support the specified conversion. -->
+        <Error Key="ConvertConversionNotSupported" Params="2" NativeErrorCode="31040">CONVERT does not support the specified conversion from %1% to %2%.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [07006]: Scalar function CONVERT does not support the specified conversion. -->
+        <Error Key="CastConversionNotSupported" Params="2" NativeErrorCode="31041">CAST does not support the specified conversion from %1% to %2%.</Error>
+
+        <!-- [21000]: Cardinality violation - Value SubQuery returns more than 1 value. -->
+        <Error Key="InvalidValueSubQuery" NativeErrorCode="31050">Cardinality violation - value subquery returned more than 1 value.</Error>
+
+        <!-- [21S01]: Insert value list degree doesn't match insert table degree. -->
+        <Error Key="InvalidNumberInsertValues" Params="2" NativeErrorCode="31051">The number of values to be inserted (%1%) doesn't match the number of columns (%2%) in the insert table.</Error>
+
+        <!-- [22001]: String or binary data right truncation. -->
+        <Error Key="RightDataTruncation" NativeErrorCode="31052">String or binary data right truncation.</Error>
+
+        <!-- [22003]: Max precision exceeded. -->
+        <Error Key="MaxPrecisionExceeded" Params="2" NativeErrorCode="31060">The number '%1%' exceeds the maximum precision allowed (%2%).</Error>
+
+        <!-- [22003]: Domain value error for a scalar function. -->
+        <Error Key="ScalarFnDomainError" Params="1" NativeErrorCode="31070">Domain value out of range for '%1%' scalar function.</Error>
+
+        <!-- [22003]: Range value error for a scalar function. -->
+        <Error Key="ScalarFnRangeError" Params="1" NativeErrorCode="31080">Result value out of range for '%1%' scalar function.</Error>
+
+        <!-- [22003]: Year range value error for a scalar function. -->
+        <Error Key="ScalarFnYearRangeError" Params="1" NativeErrorCode="31090">Year value of %1% is out of range, allowable range is [-4713, 9999].</Error>
+
+        <!-- [22012]: Division By Zero. -->
+        <Error Key="DivisionByZero" NativeErrorCode="31100">Division by zero.</Error>
+
+        <!-- [22015]: Leading interval precision exceeded. -->
+        <Error Key="LeadingPrecisionExceeded" Params="1" NativeErrorCode="31101">Leading interval precision of %1% exceeded.</Error>
+
+        <!-- [22015]: Leading interval precision out of range. -->
+        <Error Key="LeadingPrecisionRangeError" NativeErrorCode="31102">The leading interval precision value must be in the range [0, 9].</Error>
+
+        <!-- [22015]: Fractional seconds precision out of range. -->
+        <Error Key="FractionalPrecisionRangeError" NativeErrorCode="31103">The fractional seconds precision value must be in the range [1, 9].</Error>
+
+        <!-- [22018]: Comparing binary types are not supported. -->
+        <Error Key="CompareBinaryTypesNotSupported" NativeErrorCode="31110">Comparing binary types are not supported.</Error>
+
+        <!-- [22018]: Incompatible argument type for scalar function. -->
+        <Error Key="IncompatibleArgTypeForScalarFn" Params="3" NativeErrorCode="31120">Incompatible argument type %1% for argument %2% of scalar function %3%.</Error>
+
+        <!-- [22018]: Incompatible collations found. -->
+        <Error Key="IncompatibleCollations" NativeErrorCode="31130">Incompatible collations found.</Error>
+
+        <!-- [22018]: Incompatible types in predicate -->
+        <Error Key="IncompatibleTypeInPredicate" NativeErrorCode="31140">Incompatible types in predicate.</Error>
+
+        <!-- [22018]: LIKE predicates requires character data types. -->
+        <Error Key="LikePredicateRequiresCharTypes" NativeErrorCode="31150">LIKE predicates requires character data types.</Error>
+
+        <!-- [22018]: Incompatible types in INSERT list. -->
+        <Error Key="IncompatibleInsertType" Params="2" NativeErrorCode="31151">Incompatible type for insertion: expected %1%, actual %2%.</Error>
+
+        <!-- [22018]: Long data types in GROUP BY or ORDER BY are not supported. -->
+        <Error Key="LOBInOrderByOrGroupBy" NativeErrorCode="31160">Long data types in GROUP BY or ORDER BY are not supported.</Error>
+
+        <!-- [22018]: Literal conversion error for a scalar function. -->
+        <Error Key="ScalarFnLiteralConvError" Params="1" NativeErrorCode="31161">Error converting '%1%' to numeric value for scalar function.</Error>
+
+        <!-- [22018]: Integer literal conversion error for a scalar function. -->
+        <Error Key="ScalarFnIntegerLiteralConvError" Params="1" NativeErrorCode="31162">Error converting '%1%' to integer numeric value for scalar function.</Error>
+
+        <!-- [22019]: Invalid LIKE escape character. -->
+        <Error Key="InvalidEscapeChar" Params="1" NativeErrorCode="31166">Invalid LIKE ESCAPE clause '%1%'. It must consist of exactly 1 character.</Error>
+
+        <!-- [42000]: Aggregate functions and subqueries are not allowed in the GROUP BY clause. -->
+        <Error Key="AggrFnAndSubQueryInGroupBy" NativeErrorCode="31180">Aggregate functions and subqueries are not allowed in the GROUP BY clause.</Error>
+
+        <!-- [42000]: Aggregate functions in an ON clause not allowed. -->
+        <Error Key="AggrFunctionInOn" NativeErrorCode="31190">An aggregate function in an ON clause is not allowed unless it is in a sub-query contained in the SELECT LIST or the HAVING clause and the column aggregating is an outer reference.</Error>
+
+        <!-- [42000]: Aggregate functions in the WHERE clause not allowed. -->
+        <Error Key="AggrFunctionInWhere" NativeErrorCode="31200">An aggregate function in the WHERE clause is not allowed unless it is in a sub-query contained in the SELECT LIST or the HAVING clause and the column aggregating is an outer reference.</Error>
+
+        <!-- [42000]: Aggregate functions in neither the SELECT LIST nor the HAVING clause. -->
+        <Error Key="AggrFunctionNotInSelListOrHaving" NativeErrorCode="31210">An aggregate function containing an outer reference must be in a contained in the SELECT LIST or the HAVING clause.</Error>
+
+        <!-- [42000]: Constant order by expression(s). -->
+        <Error Key="ConstantOrderByExpression" NativeErrorCode="31220">At least one ORDER BY key is a constant expression.</Error>
+
+        <!-- [42000]: Correlated sub-query not allowed in HAVING. -->
+        <Error Key="CorrSubQueryNotAllowedInHaving" NativeErrorCode="31230">Correlated sub-query is not allowed in HAVING clause.</Error>
+
+        <!-- [42000]: Duplicated column name for table. -->
+        <Error Key="DuplicatedColumnName" Params="2" NativeErrorCode="31240">Duplicated column name '%1%' was specified in '%2%'.</Error>
+
+        <!-- [42000]: Duplicated column name for update list. -->
+        <Error Key="DuplicatedUpdateColumnName" Params="1" NativeErrorCode="31241">Duplicate column name '%1%' was specified in update list.</Error>
+
+        <!-- [42000]: Dynamic parameter not allowed. -->
+        <Error Key="DynParamNotAllowed" Params="1" NativeErrorCode="31250">Dynamic parameter not allowed in %1%.</Error>
+
+        <!-- [42000]: Expression Not Row-based in GROUP BY clause. -->
+        <Error Key="ExprInGroupByNotRowBased" NativeErrorCode="31260">Every expression in the GROUP BY clause must contain at least one column reference. All column references cannot refer to an outer scope.</Error>
+
+        <!-- [42000]: IF conditions are found in non-select list. -->
+        <Error Key="IfCondInNonSelectList" Params="1" NativeErrorCode="31270">IF conditions must be in select list.</Error>
+
+        <!-- [42000]: Incompatible binary operand types. -->
+        <Error Key="IncompatibleBinaryOperandTypes" Params="3" NativeErrorCode="31280">Operand types %1% and %2% are incompatible for the %3% operator.</Error>
+
+        <!-- [42000]: Incompatible union column types. -->
+        <Error Key="IncompatibleUnionColumnTypes" Params="2" NativeErrorCode="31281">Union columns %1% and %2% have incompatible types.</Error>
+
+        <!-- [42000]: Incompatible set column types. -->
+        <Error Key="IncompatibleSetColumnTypes" Params="2" NativeErrorCode="31282">Matched columns must be convertible in result sets combined with %1%. %2% and %3% are not convertible.</Error>
+
+        <!-- [42000]: Incompatible CASE result types. -->
+        <Error Key="IncompatibleCaseResultTypes" Params="1" NativeErrorCode="31283">Result types for CASE statements must be convertible. The types %1% are not mutually convertible.</Error>
+
+        <!-- [42000]: Invalid collation name found. -->
+        <Error Key="InvalidCollationName" Params="1" NativeErrorCode="31290">'%1%' is not a valid collation name.</Error>
+
+        <!-- [42000]: Invalid column prefix. -->
+        <Error Key="InvalidColumnPrefix" Params="1" NativeErrorCode="31300">Invalid column prefix: %1%.</Error>
+
+        <!-- [42000]: Invalid operand type for SET function. -->
+        <Error Key="InvalidOperandTypeForSetFn" Params="2" NativeErrorCode="31310">Operand type %1% is invalid for the SET operator '%2%'.</Error>
+
+        <!-- [42000]: Invalid order by expression(s). -->
+        <Error Key="InvalidOrderByExpression" NativeErrorCode="31320">Invalid ORDER BY key. Keys should be unsigned integers, or expressions that are not case expressions, IF conditions, parameters or sub-queries.</Error>
+
+        <!-- [42000]: Invalid sort column. -->
+        <Error Key="InvalidOrderByColumn" NativeErrorCode="31321">ORDER BY is not allowed for %1%.</Error>
+
+        <!-- [42000]: Invalid number of arguments for a scalar function. -->
+        <Error Key="InvalidScalarFnArgCount" Params ="1" NativeErrorCode="31330">Invalid argument count for scalar function %1%.</Error>
+
+        <!-- [42000]: Invalid scalar function or procedure name. -->
+        <Error Key="InvalidScalarFnName" Params="1" NativeErrorCode="31340">%1% is not a valid scalar function or procedure call.</Error>
+
+        <!-- [42000]: Second argument invalid for CONVERT. -->
+        <Error Key="InvalidSecondArgForConvertFn" NativeErrorCode="31350">The second argument for CONVERT is not a valid SQL_* type name.</Error>
+
+        <!-- [42000]: First argument invalid for TIMESTAMPADD. -->
+        <Error Key="InvalidFirstArgForTSAddFn" NativeErrorCode="31351">The first argument for TIMESTAMPADD is invalid. Expected one of SQL_TSI_FRAC_SECOND, SQL_TSI_SECOND, SQL_TSI_MINUTE, SQL_TSI_HOUR, SQL_TSI_DAY, SQL_TSI_WEEK, SQL_TSI_MONTH, SQL_TSI_QUARTER, or SQL_TSI_YEAR.</Error>
+
+        <!-- [42000]: First argument invalid for TIMESTAMPDIFF. -->
+        <Error Key="InvalidFirstArgForTSDiffFn" NativeErrorCode="31352">The second argument for TIMESTAMPDIFF is invalid. Expected one of SQL_TSI_FRAC_SECOND, SQL_TSI_SECOND, SQL_TSI_MINUTE, SQL_TSI_HOUR, SQL_TSI_DAY, SQL_TSI_WEEK, SQL_TSI_MONTH, SQL_TSI_QUARTER, or SQL_TSI_YEAR.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: Second argument invalid for CAST. -->
+        <Error Key="InvalidSecondArgForCastFn" NativeErrorCode="31353">The second argument for CAST is not a valid SQL_* type name.</Error>
+
+        <!-- [42000]: Invalid arithmetic expression operand type. -->
+        <Error Key="InvalidArithmeticOperandType" Params="2" NativeErrorCode="31360">Type %1% is invalid for the %2% operator.</Error>
+
+        <!-- [42000]: Invalid binary arithmetic expression operand type. -->
+        <Error Key="InvalidBinaryArithmeticOperandType" Params="3" NativeErrorCode="31361">Types %1% and %2% are invalid for the %3% operator.</Error>
+
+        <!-- [42000]: Invalid value in value list. -->
+        <Error Key="InvalidValueInValueList" NativeErrorCode="31370">Invalid value in value list.</Error>
+
+        <!-- [42000]: Invalid value for TOP N. -->
+        <Error Key="InvalidValueForTopN" Params="0" NativeErrorCode="31371">Invalid value for TOP. Value must be a positive integer.</Error>
+
+        <!-- [42000]: Invalid value for TOP PERCENT. -->
+        <Error Key="InvalidValueForTopPercent" Params="0" NativeErrorCode="31372">Invalid value for TOP PERCENT. Value must be a positive number between 0 and 100.</Error>
+
+        <!-- [HY000]: Can't compute row count for TOP PERCENT. -->
+        <Error Key="TopPercentCantComputeRowCount" Params="0" NativeErrorCode="31373">Could not compute row count for TOP PERCENT.</Error>
+
+        <!-- [42000]: Multiple columns from different query scope are found in an aggregate function. -->
+        <Error Key="MultiColumnsInAggrFn" Params="1" NativeErrorCode="31380">Multiple columns are specified in an aggregated function containing an outer reference. If an aggregate function contains an outer reference, then that outer reference must be the only column reference.</Error>
+
+        <!-- [42000]: Multiple expressions in the select list of a sub-query. -->
+        <Error Key="MultiExprsInSubQuery" Params="1" NativeErrorCode="31390">Multiple expressions found in the select list of a subquery not introduced by EXISTS.</Error>
+
+        <!-- [42000]: Multi-part column could not be bound. -->
+        <Error Key="MultiPartColNameNotBound" Params="1" NativeErrorCode="31400">Qualified column could not be bound: %1%.</Error>
+
+        <!-- [42000]: Nested aggregate function not allowed. -->
+        <Error Key="NestedAggrFunctionNotAllowed" NativeErrorCode="31410">An aggregate function can contain neither an aggregate function nor a subquery.</Error>
+
+        <!-- [42000]: No column name specified for a column. -->
+        <Error Key="NoColumnNameSpecified" Params="2" NativeErrorCode="31420">No column name is specified on column %1% of table/sub-query '%2%'.</Error>
+
+        <!-- [42000]: A column is neither in an aggregate function nor from the GROUP BY clause. -->
+        <Error Key="NonGroupingColInSelList" Params="1" NativeErrorCode="31430">Column '%1%' is neither in an aggregate function nor from the GROUP BY clause.</Error>
+
+        <!-- [42000]: Non-unique Column Reference. -->
+        <Error Key="NonUniqueColRef" Params="1" NativeErrorCode="31440">Non-unique column reference: %1%.</Error>
+
+        <!-- [42000]: ORDER BY expressions must appear in the select list when SELECT DISTINCT is present. -->
+        <Error Key="OrderByExprNotInSelectDistinct" NativeErrorCode="31450">ORDER BY expressions must appear in the select list when SELECT DISTINCT is present.</Error>
+
+        <!-- [42000]: ORDER BY expressions must appear in the select list when EXCEPT, INTERSECT or UNION is present. -->
+        <Error Key="OrderByExprNotInSelectList" NativeErrorCode="31460">ORDER BY expressions must appear in the select list of the first query specification when EXCEPT, INTERSECT or UNION is present.</Error>
+
+        <!-- [42000]: ORDER BY position number out of range.-->
+        <Error Key="OrderByPositionNumberOutOfRange" NativeErrorCode="31470">The position number in ORDER BY is out of range.</Error>
+
+        <!-- [42000]: GROUP BY position number out of range.-->
+        <Error Key="GroupByPositionNumberOutOfRange" NativeErrorCode="31473">The position number in GROUP BY is out of range.</Error>
+
+        <!-- [42000]: GROUP BY position number out of range.-->
+        <Error Key="GroupByPositionNumberWithStar" NativeErrorCode="31474">GROUP BY may not refer to the SELECT list using a column ordinal when the SELECT list contains a '*'.</Error>
+
+        <!-- [42000]: ORDER BY occurs in a subquery without an accompanying TOP.-->
+        <Error Key="OrderByInSubQueryWithoutTop" NativeErrorCode="31475">ORDER BY may only occur in a subquery when accompanied by TOP or LIMIT.</Error>
+
+        <!-- [42000]: Parsing failure. -->
+        <Error Key="ParsingFailure" Params="2" NativeErrorCode="31480">%1% near '%2%'.</Error>
+
+        <!-- [42000]: Unknown parsing failure. -->
+        <Error Key="UknownParsingFailure" Params="2" NativeErrorCode="31490">Unknown parsing failure.</Error>
+
+        <!-- [42000]: Row value constructor not supported in predicates. -->
+        <Error Key="RowConstructorNotSupported" NativeErrorCode="31500">Row value constructor not supported in predicates such as (quantified) comparisons, IN, BETWEEN.</Error>
+
+        <!-- [42000]: Table or correlation name not unique. -->
+        <Error Key="TableOrCorNameNotUnique" Params="1" NativeErrorCode="31510">Table/correlation name not unique: %1%.</Error>
+
+        <!-- [42000]: Set functions are found in an IF condition. -->
+        <Error Key="SetFnInIFCond" Params="1" NativeErrorCode="31520">Set functions are not allowed in IF condition.</Error>
+
+        <!-- [42000]: Sub-queries are found in an IF condition. -->
+        <Error Key="SubQueryInIFCond" Params="1" NativeErrorCode="31530">Sub-queries are not allowed in IF condition.</Error>
+      
+        <!-- [42000]: The length of the given binary literal exceeds the maximum. -->
+        <Error Key="MaxBinaryLiteralLenExceeded" Params="2" NativeErrorCode="31540">The length of the binary literal '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the given character literal exceeds the maximum. -->
+        <Error Key="MaxCharLiteralLenExceeded" Params="2" NativeErrorCode="31550">The length of the character literal '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The size of the index exceeds the maximum. -->
+        <Error Key="MaxIndexSizeExceeded" Params="1" NativeErrorCode="31560">The size of the index exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The row size exceeds the maximum. -->
+        <Error Key="MaxRowSizeExceeded" Params="1" NativeErrorCode="31570">The size of the row exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The length of the statement exceeds the maximum. -->
+        <Error Key="MaxStatementLenExceeded" Params="1" NativeErrorCode="31580">The length of the statement exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The length of the catalog name exceeds the maximum. -->
+        <Error Key="MaxCatalogNameLenExceeded" Params="2" NativeErrorCode="31590">The length of the catalog name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the column name exceeds the maximum. -->
+        <Error Key="MaxColumnNameLenExceeded" Params="2" NativeErrorCode="31600">The length of the column name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The number of columns in the GROUP BY clause exceeds the maximum. -->
+        <Error Key="MaxColumnsInGroupByExceeded" Params="1" NativeErrorCode="31610">The number of columns in the GROUP BY clause exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The number of columns in the index exceeds the maximum. -->
+        <Error Key="MaxColumnsInIndexExceeded" Params="1" NativeErrorCode="31620">The number of columns in the index exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The number of columns in the ORDER BY clause exceeds the maximum. -->
+        <Error Key="MaxColumnsInOrderByExceeded" Params="1" NativeErrorCode="31630">The number of columns in the ORDER BY clause exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The number of columns in the select list exceeds the maximum. -->
+        <Error Key="MaxColumnsInSelectExceeded" Params="1" NativeErrorCode="31640">The number of columns in the select list exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The number of columns in the table exceeds the maximum. -->
+        <Error Key="MaxColumnsInTableExceeded" Params="1" NativeErrorCode="31650">The number of columns in the table exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The length of the cursor name exceeds the maximum. -->
+        <Error Key="MaxCursorNameLenExceeded" Params="2" NativeErrorCode="31660">The length of the cursor name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the identifier exceeds the maximum. -->
+        <Error Key="MaxIdentifierLenExceeded" Params="2" NativeErrorCode="31670">The length of the identifier '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the procedure name exceeds the maximum. -->
+        <Error Key="MaxProcedureNameLenExceeded" Params="2" NativeErrorCode="31680">The length of the procedure name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the schema name exceeds the maximum. -->
+        <Error Key="MaxSchemaNameLenExceeded" Params="2" NativeErrorCode="31690">The length of the schema name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The length of the table name exceeds the maximum. -->
+        <Error Key="MaxTableNameLenExceeded" Params="2" NativeErrorCode="31700">The length of the table name '%1%' exceeds the maximum: %2%.</Error>
+      
+        <!-- [42000]: The number of tables in the select statement exceeds the maximum. -->
+        <Error Key="MaxTablesInSelectExceeded" Params="1" NativeErrorCode="31710">The number of tables in the select statement exceeds the maximum: %1%.</Error>
+      
+        <!-- [42000]: The length of the user name exceeds the maximum. -->
+        <Error Key="MaxUserNameLenExceeded" Params="2" NativeErrorCode="31720">The length of the user name exceeds the maximum.</Error>
+
+        <!-- [42000]: Invalid type for EXTRACT -->
+        <Error Key="InvalidExtractType" Params="2" NativeErrorCode="31721">"Invalid call to scalar function EXTRACT: Argument of type %1% has no field %2%.</Error>
+
+        <!-- [42000]: A reserved keyword was used in the SQL statement. -->
+        <Error Key="ReservedKeywordUsed" Params="1" NativeErrorCode="31730">'%1%' is a reserved keyword.</Error>
+      
+        <!-- [42000]: Invalid SQL Data Type specified. -->
+        <Error Key="InvalidSqlDataTypeSpecified" Params="1" NativeErrorCode="31731">Invalid SQL Data type specified: %1%.</Error>
+
+        <!-- [42000]: The number of columns in the comibned result sets do not match. -->
+        <Error Key="InvalidNumberColumnsSet" Params="1" NativeErrorCode="31731">Mismatched number of columns. The number of columns in all result sets combined with %1% must be equal.</Error>
+
+        <!-- [42000]: The driver is read-only and DDL or DML was attempted. -->
+        <Error Key="InvalidOpDriverReadOnly" Params="1" NativeErrorCode="31732">Driver is read-only and does not permit %1% operations.</Error>
+
+        <!-- [42000]: A column appeared more than once in the insert column list. -->
+        <Error Key="DuplicateInsertColumn" Params="1" NativeErrorCode="31733">Column '%1%' appeared more than once in the insert column list.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: Both TOP and LIMIT are present in a SELECT query.. -->
+        <Error Key="TopAndLimit" NativeErrorCode="31734">Only one of TOP and LIMIT may be used in a SELECT query.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: A correlation specification contains non-unique column names in the list of renamed columns. -->
+        <Error Key="CorrelationSpecNonUniqueColumns" Params="2" NativeErrorCode="31735">The correlation specification '%1%' contains the column name '%2%' more than once.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: A correlation specification contains an invalid number of columns. -->
+        <Error Key="CorrelationSpecInvalidNumColumns" Params="3" NativeErrorCode="31736">The correlation specification '%1%' contains an invalid number of columns : Expected %2%, Got %3%.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: An invalid set (aggregate) function was specified. -->
+        <Error Key="InvalidSetFn" Params="1" NativeErrorCode="31737">Unsupported aggregate function '%1%' specified in the query.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42000]: Custom set (aggregate) functions are not supported for execution. -->
+        <Error Key="CustomSetFnNotSupported" Params="1" NativeErrorCode="31739">Custom aggregate functions (%1%) are not currently supported in the ETree.</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42S01]: Table or view not found. -->
+        <Error Key="TableOrViewAlreadyExists" Params="1" NativeErrorCode="31738">Table or view already exists: %1%</Error>
+
+        <!-- [42S02]: Table or view not found. -->
+        <Error Key="TableOrViewNotFound" Params="1" NativeErrorCode="31740">Table or view not found: %1%</Error>
+
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42S11]: Index already exists. -->
+        <Error Key="IndexAlreadyExists" Params="1" NativeErrorCode="31745">Index already exists: %1%</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [42S12]: Index not found. -->
+        <Error Key="IndexNotFound" Params="1" NativeErrorCode="31746">Index not found: %1%</Error>
+
+        <!-- [42S22]: Column not found. -->
+        <Error Key="ColumnNotFound" Params="1" NativeErrorCode="31750">Column not found: %1%</Error>
+
+        <!-- [HY004]: Invalid SQL Data Type. -->
+        <Error Key="InvalidSqlDataType" Params="3" NativeErrorCode="31760">Invalid SQL data type: %1% [%2%: %3%].</Error>
+
+        <!-- [HY008]: Error thrown when an operation is canceled. -->
+        <Error Key="OperationCanceled" NativeErrorCode="31765">Operation canceled.</Error>
+
+        <!-- [HY105]: Parameter type is output with a non-parameter node. -->
+        <Error Key="InvalidOutputParameter" Params="1" NativeErrorCode="31770">Stored procedure argument %1% must be bound as an output parameter.</Error>
+
+        <!-- [HYC00]: Catalog support not implemented. -->
+        <Error Key="CatalogNotSupported" NativeErrorCode="31771">Catalogs are not supported for table identifiers.</Error>
+
+        <!-- [HYC00]: Schema support not implemented. -->
+        <Error Key="SchemaNotSupported" NativeErrorCode="31772">Schemas are not supported for table identifiers.</Error>
+      
+        <!-- [HYC00]: Optional feature not implemented. -->
+        <Error Key="FeatureNotSupported" NativeErrorCode="31780">The action is not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HYC00]: Create table statements are not supported. -->
+        <Error Key="CreateTableNotSupported" NativeErrorCode="31781">Create table statements are not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HYC00]: Create index statements are not supported. -->
+        <Error Key="CreateIndexNotSupported" NativeErrorCode="31785">Create index statements are not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HYC00]: Drop table statements are not supported. -->
+        <Error Key="DropTableNotSupported" NativeErrorCode="31790">Drop table statements are not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HYC00]: Drop index statements are not supported. -->
+        <Error Key="DropIndexNotSupported" NativeErrorCode="31795">Drop index statements are not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HYC00]: Table constraints are not supported. -->
+        <Error Key="TableConstraintNotSupported" NativeErrorCode="31800">Table constraints are not supported.</Error>
+      
+        <!-- MAINTENANCE NOTE: This translation needs to be reviewed -->
+        <!-- [HY000]: Invalid number of parameters specified for the data type. -->
+        <Error Key="InvalidNumberTypeParameters" NativeErrorCode="31820">Invalid number of parameters for data type %1%.</Error>
+
+    </Package> 
+</Messages>

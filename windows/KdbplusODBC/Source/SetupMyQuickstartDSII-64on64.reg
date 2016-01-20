@@ -1,0 +1,69 @@
+REGEDIT4
+
+; This registry file is for 64-bit data sources on 64-bit Windows.
+; Make sure to replace all instances of [INSTALL_DIRECTORY] with the installation directory for SimbaEngine before merging with Windows Registry.
+; Notice the double backslashes in the following example: 
+;   "C:\\Simba Technologies"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\ODBC Data Sources]
+"KdbplusODBCDSII"="KdbplusODBCDSIIDriver"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI\KdbplusODBCDSII]
+"Driver"="KdbplusODBCDSIIDriver"
+"DBF"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Examples\\Databases\\KdbplusODBC"
+"Description"="Kdbplus ODBC driver DSII"
+"Locale"="en-US"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers]
+"KdbplusODBCDSIIDriver"="Installed"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBCINST.INI\KdbplusODBCDSIIDriver]
+"Setup"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Examples\\Source\\KdbplusODBC\\Bin\\x64\\Debug_MTDLL\\KdbplusODBC_Debug_MTDLL.dll"
+"Driver"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Examples\\Source\\KdbplusODBC\\Bin\\x64\\Debug_MTDLL\\KdbplusODBC_Debug_MTDLL.dll"
+"Description"="My 64-bit SimbaEngine KdbplusODBC DSII"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Server]
+"LogLevel"="0"
+"LogNamespace"=""
+"LogPath"=""
+"DBF"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Examples\\Databases\\KdbplusODBC"
+"DriverManagerEncoding"="UTF-16"
+"DriverLocale"="en-US"
+"ErrorMessagesPath"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\DataAccessComponents\\ErrorMessages"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Server\Network]
+"MaxConnections"="64"
+"ListenAddress"=""
+"ConnectionIdleTimeout"="86400"
+"ListenPort"="12345"
+"UseSsl"="0"
+"SslCertfile"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Documentation\\SSLCertificates\\SampleServerCertificate.pem"
+"SslKeyFile"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\Documentation\\SSLCertificates\\SampleServerKey.pem"
+"MaxDataChunkSize"="65550"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Server\Admin]
+"UseSignaling"="Yes"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Server\Buffers]
+"BufferAllocationSize"="8192"
+"PreAllocatedBuffers"="1000"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Server\Threads]
+"MinWorkerThreads"="10"
+"TaskQueueTimeout"="1000"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Simba\KdbplusODBC\Driver]
+"LogLevel"="0"
+"LogPath"=""
+"LogNamespace"=""
+"DriverManagerEncoding"="UTF-16"
+"DriverLocale"="en-US"
+"ErrorMessagesPath"="C:\\Simba Technologies\\SimbaEngineSDK\\9.5\\DataAccessComponents\\ErrorMessages"

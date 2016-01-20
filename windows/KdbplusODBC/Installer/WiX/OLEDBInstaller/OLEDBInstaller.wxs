@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?include $(sys.CURRENTDIR)\Config.Common.wxi?>
+  <?include $(sys.CURRENTDIR)\Config.Branding.wxi?>
+  <Product Id="$(var.ProductGuid)" Name="$(var.DriverRegistryEntryName)" Language="1033" Version="$(var.Version)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeGuid)">
+
+    <!-- Note: InstallerVersion is 300 because VC10 is 300. 200 is the default value though -->
+    <Package InstallerVersion="300" Compressed="yes" InstallScope="perMachine" InstallPrivileges="elevated"/>
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <!-- Merge the .cab file with the .msi file and set the compression level to high. -->
+    <Media Id="1" Cabinet="cab1.cab" CompressionLevel="high" EmbedCab="yes" />
+
+    <Feature Id="ProductFeature" Title="$(var.DriverRegistryEntryName)" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ProgramMenuDir" />
+    </Feature>
+
+    <!-- <Feature Id="VCRedist" Title="Visual C++ 10.0 Runtime" AllowAdvertise="no" Display="hidden" Level="1">
+      <MergeRef Id="VCRedist" />
+    </Feature> -->
+
+    <!-- Load a basic Wix UI dialog that lets you specify the Installation directory -->
+    <UIRef Id="CustomizedWixUI_InstallDir"/>
+    <Property Id="WIXUI_INSTALLDIR" Value="OLEDBFOLDER" />
+    <Property Id="MSIUSEREALADMINDETECTION" Value="1" />
+  
+    <!-- Ignore for now <!- Override the EULA and installer images 
+    <WixVariable Id="WixUILicenseRtf" Value="$(var.EULAPath)" />
+    <WixVariable Id="WixUIBannerBmp" Value="$(var.TopBannerPath)" />
+    <WixVariable Id="WixUIDialogBmp" Value="$(var.WelcomeBgPath)" /> -->
+
+      <InstallExecuteSequence>
+          <Custom Action='InstallCartridge' Before='InstallFinalize'>NOT REMOVE OR UPGRADINGPRODUCTCODE</Custom>
+          <Custom Action='UninstallCartridge' Before='RemoveFiles'>(NOT UPGRADINGPRODUCTCODE) AND (REMOVE="ALL")</Custom>
+      </InstallExecuteSequence>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- <Merge Id="VCRedist" SourceFile="$(sys.CURRENTDIR)\MergeModules\VC10\Microsoft_VC100_CRT_$(var.Platform).msm" DiskId="1" Language="0"/> -->
+
+      <!-- Installation Directory -->
+      <Directory Id="$(var.PlatformProgramFilesFolder)">
+        <!-- Create the directory structure under the Program Files folder -->
+        <Directory Id="INSTALLFOLDER" Name="$(var.DriverRegistryEntryName)">
+          <Directory Id = "OLEDBFOLDER" Name ="OLEDB">
+            <Directory Id="Binaries" Name="$(var.BinariesDirectory)" />
+            <Directory Id="DBFDir" Name="DBF" />
+            <Directory Id="ErrorMessages" Name="ErrorMessages">
+              <Directory Id="en_US" Name="en-US" />
+            </Directory>
+            <Directory Id ="Setup" Name="Setup"/>
+          </Directory>
+        </Directory>
+      </Directory>
+
+      <!-- Start Menu -->
+      <Directory Id="ProgramMenuFolder" Name="Programs">
+        <Directory Id="ProgramMenuDir" Name="$(var.StartMenuName)">
+          <Component Id="ProgramMenuDir" Guid="$(var.StartMenuGUID)">
+            <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+            <RegistryValue Root="HKCU" Key="$(var.SoftwareSubKey)\$(var.ShortVendorName)\$(var.DriverRegistryEntryName)" Type="string" Value="" KeyPath="yes" />
+            <?ifdef var.WebLinkTarget?>
+            <?ifdef var.WebLinkName?>
+            <util:InternetShortcut Id="WebLink" Target="$(var.WebLinkTarget)" Name="$(var.WebLinkName)" Type="url"/>
+            <?endif?>
+            <?endif?>
+            <Shortcut Id="UninstallShortcut" Target="$(var.UninstallerPath)" Name="Uninstall $(var.DriverRegistryEntryName)" Arguments="/x [ProductCode]" />
+          </Component>
+        </Directory>
+      </Directory>
+
+      <!-- System Directories -->
+      <Directory Id="$(var.PlatformSystemFolder)" />
+
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents">
+      
+      <!-- Main DLL installation -->
+      <Component Id="DllComponent" Guid="$(var.DllGUID)" Directory="Binaries">
+        <File Id="QuickstartDSII" Name ="QuickstartDSII.dll" Source="$(var.ProductDirectory)\$(var.SrcBinariesDirectory)\QuickstartOLEDB_Debug.dll" KeyPath="yes">
+          <Class Id="{6FDF2253-DD6F-4692-B8AD-D8AD4E747D90}" Context="InprocServer32" Description="SimbaQuickstartProvider" ThreadingModel="both">
+            <ProgId Id="SimbaQuickstartProvider" Description="Simba Quickstart OLE DB Provider" />
+          </Class>
+        </File>
+      </Component>
+      
+      <!-- Cartridge installation files. -->
+      <Component Id ="Setup" Guid="$(var.SetupGUID)" Directory="Setup">
+        <File Id="CartridgeInstaller" Name="CartridgeInstaller.exe" Source="$(var.CartridgeInstallerDirectory)\CartridgeInstaller.exe"/>
+        <File Id="Cartridge" Name="quickstart.xsl" Source="$(var.ProductDirectory)\Setup\quickstart.xsl"/>
+      </Component>
+      
+      <!-- Database installation-->
+      <Component Id="DBFComponent" Guid="$(var.DBFGUID)" Directory="DBFDir">
+        <File Id="DBF_A_B_Data" Name="A_B.txt" Source="$(var.DBFSourceDirectory)\A_B.txt" KeyPath="yes" />
+        <File Id="DBF_ADDR_Data" Name="ADDR.txt" Source="$(var.DBFSourceDirectory)\ADDR.txt" />
+        <File Id="DBF_ADDR_Schema" Name="ADDR.xml" Source="$(var.DBFSourceDirectory)\ADDR.xml" />
+        <File Id="DBF_ALLTYPE_Data" Name="ALLTYPE.txt" Source="$(var.DBFSourceDirectory)\ALLTYPE.txt" />
+        <File Id="DBF_ALLTYPE_Schema" Name="ALLTYPE.xml" Source="$(var.DBFSourceDirectory)\ALLTYPE.xml" />
+        <File Id="DBF_ALLTYPE1_Data" Name="ALLTYPE1.txt" Source="$(var.DBFSourceDirectory)\ALLTYPE1.txt" />
+        <File Id="DBF_ALLTYPE1_Schema" Name="ALLTYPE1.xml" Source="$(var.DBFSourceDirectory)\ALLTYPE1.xml" />
+        <File Id="DBF_ALLTYPE2_Data" Name="ALLTYPE2.txt" Source="$(var.DBFSourceDirectory)\ALLTYPE2.txt" />
+        <File Id="DBF_ALLTYPE2_Schema" Name="ALLTYPE2.xml" Source="$(var.DBFSourceDirectory)\ALLTYPE2.xml" />
+        <File Id="DBF_AT1_Data" Name="AT1.txt" Source="$(var.DBFSourceDirectory)\AT1.txt" />
+        <File Id="DBF_AT1_Schema" Name="AT1.xml" Source="$(var.DBFSourceDirectory)\AT1.xml" />
+        <File Id="DBF_AT2_Data" Name="AT2.txt" Source="$(var.DBFSourceDirectory)\AT2.txt" />
+        <File Id="DBF_AT2_Schema" Name="AT2.xml" Source="$(var.DBFSourceDirectory)\AT2.xml" />
+        <File Id="DBF_AT3_Data" Name="AT3.txt" Source="$(var.DBFSourceDirectory)\AT3.txt" />
+        <File Id="DBF_AT3_Schema" Name="AT3.xml" Source="$(var.DBFSourceDirectory)\AT3.xml" />
+        <File Id="DBF_AT4_Data" Name="AT4.txt" Source="$(var.DBFSourceDirectory)\AT4.txt" />
+        <File Id="DBF_AT4_Schema" Name="AT4.xml" Source="$(var.DBFSourceDirectory)\AT4.xml" />
+        <File Id="DBF_AV1_Data" Name="AV1.txt" Source="$(var.DBFSourceDirectory)\AV1.txt" />
+        <File Id="DBF_AV1_Schema" Name="AV1.xml" Source="$(var.DBFSourceDirectory)\AV1.xml" />
+        <File Id="DBF_AV2_Data" Name="AV2.txt" Source="$(var.DBFSourceDirectory)\AV2.txt" />
+        <File Id="DBF_AV2_Schema" Name="AV2.xml" Source="$(var.DBFSourceDirectory)\AV2.xml" />
+        <File Id="DBF_AV3_Data" Name="AV3.txt" Source="$(var.DBFSourceDirectory)\AV3.txt" />
+        <File Id="DBF_AV3_Schema" Name="AV3.xml" Source="$(var.DBFSourceDirectory)\AV3.xml" />
+        <File Id="DBF_AV4_Data" Name="AV4.txt" Source="$(var.DBFSourceDirectory)\AV4.txt" />
+        <File Id="DBF_AV4_Schema" Name="AV4.xml" Source="$(var.DBFSourceDirectory)\AV4.xml" />
+        <File Id="DBF_BIGINT_Data" Name="BIGINT.txt" Source="$(var.DBFSourceDirectory)\BIGINT.txt" />
+        <File Id="DBF_BIGINT_Schema" Name="BIGINT.xml" Source="$(var.DBFSourceDirectory)\BIGINT.xml" />
+        <File Id="DBF_BINTYPE_Data" Name="BINTYPE.txt" Source="$(var.DBFSourceDirectory)\BINTYPE.txt" />
+        <File Id="DBF_BINTYPE_Schema" Name="BINTYPE.xml" Source="$(var.DBFSourceDirectory)\BINTYPE.xml" />
+        <File Id="DBF_BOYS_Data" Name="BOYS.txt" Source="$(var.DBFSourceDirectory)\BOYS.txt" />
+        <File Id="DBF_BOYS_Schema" Name="BOYS.xml" Source="$(var.DBFSourceDirectory)\BOYS.xml" />
+        <File Id="DBF_CUSTOMER_Data" Name="CUSTOMER.txt" Source="$(var.DBFSourceDirectory)\CUSTOMER.txt" />
+        <File Id="DBF_CUSTOMER_Schema" Name="CUSTOMER.xml" Source="$(var.DBFSourceDirectory)\CUSTOMER.xml" />
+        <File Id="DBF_DATE_Data" Name="DATE.txt" Source="$(var.DBFSourceDirectory)\DATE.txt" />
+        <File Id="DBF_DATE_Schema" Name="DATE.xml" Source="$(var.DBFSourceDirectory)\DATE.xml" />
+        <File Id="DBF_DEPT_Data" Name="DEPT.txt" Source="$(var.DBFSourceDirectory)\DEPT.txt" />
+        <File Id="DBF_DEPT_Schema" Name="DEPT.xml" Source="$(var.DBFSourceDirectory)\DEPT.xml" />
+        <File Id="DBF_DISCOUNT_Data" Name="DISCOUNT.txt" Source="$(var.DBFSourceDirectory)\DISCOUNT.txt" />
+        <File Id="DBF_DISCOUNT_Schema" Name="DISCOUNT.xml" Source="$(var.DBFSourceDirectory)\DISCOUNT.xml" />
+        <File Id="DBF_EMP_Data" Name="EMP.txt" Source="$(var.DBFSourceDirectory)\EMP.txt" />
+        <File Id="DBF_EMP_Schema" Name="EMP.xml" Source="$(var.DBFSourceDirectory)\EMP.xml" />
+        <File Id="DBF_EMPTYSTR_Data" Name="EMPTYSTR.txt" Source="$(var.DBFSourceDirectory)\EMPTYSTR.txt" />
+        <File Id="DBF_EMPTYSTR_Schema" Name="EMPTYSTR.xml" Source="$(var.DBFSourceDirectory)\EMPTYSTR.xml" />
+        <File Id="DBF_EMPTYSTR2_Data" Name="EMPTYSTR2.txt" Source="$(var.DBFSourceDirectory)\EMPTYSTR2.txt" />
+        <File Id="DBF_EMPTYSTR2_Schema" Name="EMPTYSTR2.xml" Source="$(var.DBFSourceDirectory)\EMPTYSTR2.xml" />
+        <File Id="DBF_GIRLS_Data" Name="GIRLS.txt" Source="$(var.DBFSourceDirectory)\GIRLS.txt" />
+        <File Id="DBF_GIRLS_Schema" Name="GIRLS.xml" Source="$(var.DBFSourceDirectory)\GIRLS.xml" />
+        <File Id="DBF_L_Data" Name="L.txt" Source="$(var.DBFSourceDirectory)\L.txt" />
+        <File Id="DBF_L_Schema" Name="L.xml" Source="$(var.DBFSourceDirectory)\L.xml" />
+        <File Id="DBF_LOC_Data" Name="LOC.txt" Source="$(var.DBFSourceDirectory)\LOC.txt" />
+        <File Id="DBF_LOC_Schema" Name="LOC.xml" Source="$(var.DBFSourceDirectory)\LOC.xml" />
+        <File Id="DBF_M_Data" Name="M.txt" Source="$(var.DBFSourceDirectory)\M.txt" />
+        <File Id="DBF_M_Schema" Name="M.xml" Source="$(var.DBFSourceDirectory)\M.xml" />
+        <File Id="DBF_MULTIENCODING_Data" Name="MULTIENCODING.txt" Source="$(var.DBFSourceDirectory)\MULTIENCODING.txt" />
+        <File Id="DBF_MULTIENCODING_Schema" Name="MULTIENCODING.xml" Source="$(var.DBFSourceDirectory)\MULTIENCODING.xml" />
+        <File Id="DBF_NT1_Data" Name="NT1.txt" Source="$(var.DBFSourceDirectory)\NT1.txt" />
+        <File Id="DBF_NT1_Schema" Name="NT1.xml" Source="$(var.DBFSourceDirectory)\NT1.xml" />
+        <File Id="DBF_NT2_Data" Name="NT2.txt" Source="$(var.DBFSourceDirectory)\NT2.txt" />
+        <File Id="DBF_NT2_Schema" Name="NT2.xml" Source="$(var.DBFSourceDirectory)\NT2.xml" />
+        <File Id="DBF_NT3_Data" Name="NT3.txt" Source="$(var.DBFSourceDirectory)\NT3.txt" />
+        <File Id="DBF_NT3_Schema" Name="NT3.xml" Source="$(var.DBFSourceDirectory)\NT3.xml" />
+        <File Id="DBF_NT4_Data" Name="NT4.txt" Source="$(var.DBFSourceDirectory)\NT4.txt" />
+        <File Id="DBF_NT4_Schema" Name="NT4.xml" Source="$(var.DBFSourceDirectory)\NT4.xml" />
+        <File Id="DBF_NUMTYPE_Data" Name="NUMTYPE.txt" Source="$(var.DBFSourceDirectory)\NUMTYPE.txt" />
+        <File Id="DBF_NUMTYPE_Schema" Name="NUMTYPE.xml" Source="$(var.DBFSourceDirectory)\NUMTYPE.xml" />
+        <File Id="DBF_PRODUCT_Data" Name="PRODUCT.txt" Source="$(var.DBFSourceDirectory)\PRODUCT.txt" />
+        <File Id="DBF_PRODUCT_Schema" Name="PRODUCT.xml" Source="$(var.DBFSourceDirectory)\PRODUCT.xml" />
+        <File Id="DBF_S_Data" Name="S.txt" Source="$(var.DBFSourceDirectory)\S.txt" />
+        <File Id="DBF_S_Schema" Name="S.xml" Source="$(var.DBFSourceDirectory)\S.xml" />
+        <File Id="DBF_SHIPMENT_Data" Name="SHIPMENT.txt" Source="$(var.DBFSourceDirectory)\SHIPMENT.txt" />
+        <File Id="DBF_SHIPMENT_Schema" Name="SHIPMENT.xml" Source="$(var.DBFSourceDirectory)\SHIPMENT.xml" />
+        <File Id="DBF_T1_Data" Name="T1.txt" Source="$(var.DBFSourceDirectory)\T1.txt" />
+        <File Id="DBF_T1_Schema" Name="T1.xml" Source="$(var.DBFSourceDirectory)\T1.xml" />
+        <File Id="DBF_T2_Data" Name="T2.txt" Source="$(var.DBFSourceDirectory)\T2.txt" />
+        <File Id="DBF_T2_Schema" Name="T2.xml" Source="$(var.DBFSourceDirectory)\T2.xml" />
+        <File Id="DBF_T3_Data" Name="T3.txt" Source="$(var.DBFSourceDirectory)\T3.txt" />
+        <File Id="DBF_T3_Schema" Name="T3.xml" Source="$(var.DBFSourceDirectory)\T3.xml" />
+        <File Id="DBF_T4_Data" Name="T4.txt" Source="$(var.DBFSourceDirectory)\T4.txt" />
+        <File Id="DBF_T4_Schema" Name="T4.xml" Source="$(var.DBFSourceDirectory)\T4.xml" />
+        <File Id="DBF_TEST_Data" Name="TEST.txt" Source="$(var.DBFSourceDirectory)\TEST.txt" />
+        <File Id="DBF_TEST_Schema" Name="TEST.xml" Source="$(var.DBFSourceDirectory)\TEST.xml" />
+        <File Id="DBF_TIME_Data" Name="TIME.txt" Source="$(var.DBFSourceDirectory)\TIME.txt" />
+        <File Id="DBF_TIME_Schema" Name="TIME.xml" Source="$(var.DBFSourceDirectory)\TIME.xml" />
+        <File Id="DBF_TRANS_Data" Name="TRANS.txt" Source="$(var.DBFSourceDirectory)\TRANS.txt" />
+        <File Id="DBF_TRANS_Schema" Name="TRANS.xml" Source="$(var.DBFSourceDirectory)\TRANS.xml" />
+        <File Id="DBF_TRIG_Data" Name="TRIG.txt" Source="$(var.DBFSourceDirectory)\TRIG.txt" />
+        <File Id="DBF_TRIG_Schema" Name="TRIG.xml" Source="$(var.DBFSourceDirectory)\TRIG.xml" />
+        <File Id="DBF_UARABIC_Data" Name="UARABIC.txt" Source="$(var.DBFSourceDirectory)\UARABIC.txt" />
+        <File Id="DBF_UCHINESE_Data" Name="UCHINESE.txt" Source="$(var.DBFSourceDirectory)\UCHINESE.txt" />
+        <File Id="DBF_UJAPANESE_Data" Name="UJAPANESE.txt" Source="$(var.DBFSourceDirectory)\UJAPANESE.txt" />
+        <File Id="DBF_UNSIGNED_Data" Name="UNSIGNED.txt" Source="$(var.DBFSourceDirectory)\UNSIGNED.txt" />
+        <File Id="DBF_UNSIGNED_Schema" Name="UNSIGNED.xml" Source="$(var.DBFSourceDirectory)\UNSIGNED.xml" />
+      </Component>
+
+      <!-- Error Message Section -->
+      <Component Id="ErrorMessages" Guid="$(var.ErrorMessagesGUID)" Directory="en_US">
+        <File Id="SimbaQuickStartMessages" Name="QSMessages.xml" Source="$(var.ProductDirectory)\ErrorMessages\en-US\QSMessages.xml" KeyPath="yes"/>
+        <File Id="OLEDBMessages" Name="OLEDBMessages.xml" Source="$(var.ProductDirectory)\ErrorMessages\en-US\OLEDBMessages.xml"/>
+        <File Id="SQLEngineMessages" Name="SQLEngineMessages.xml" Source="$(var.ProductDirectory)\ErrorMessages\en-US\SQLEngineMessages.xml"/>
+      </Component>
+    
+      <!-- Third Party Section -->
+      <Component Id="ThirdPartyLibraries" Guid="$(var.ThirdPartyLibGUID)" Directory="Binaries">
+        <File Id="ICUDT" Name="simbaicudt53_$(var.ICUSuffix).dll" Source="$(var.ProductDirectory)\$(var.SrcBinariesDirectory)\simbaicudt53_$(var.ICUSuffix).dll" KeyPath="yes"/>
+        <File Id="ICUIN" Name="simbaicuin53_$(var.ICUSuffix).dll" Source="$(var.ProductDirectory)\$(var.SrcBinariesDirectory)\simbaicuin53_$(var.ICUSuffix).dll"/>
+        <File Id="ICUUC" Name="simbaicuuc53_$(var.ICUSuffix).dll" Source="$(var.ProductDirectory)\$(var.SrcBinariesDirectory)\simbaicuuc53_$(var.ICUSuffix).dll"/>
+      </Component>
+      
+      <!-- Registry Section -->
+      <Component Id="RegistryEntries" Directory="OLEDBFOLDER" Guid="$(var.RegistryEntriesGUID)">
+        <RegistryValue Root="HKCR" Key="CLSID\FD6B9B53-F83B-4477-9969-0D9C95F9A255\InprocServer32\ThreadingModel" Value="Both" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\FD6B9B53-F83B-4477-9969-0D9C95F9A255\InprocServer32" Value="[#QuickstartDSII]" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\FD6B9B53-F83B-4477-9969-0D9C95F9A255\ProgID" Value="SimbaQuickstartProvider" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\FD6B9B53-F83B-4477-9969-0D9C95F9A255\VersionIndependentProgID" Value="SimbaQuickstartProvider" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\FD6B9B53-F83B-4477-9969-0D9C95F9A255" Value="Simba Quickstart Error Lookup Service" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{6FDF2253-DD6F-4692-B8AD-D8AD4E747D90}\ExtendedErrors\{FD6B9B53-F83B-4477-9969-0D9C95F9A255}" Value="Simba Quickstart Error Lookup Service" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{6FDF2253-DD6F-4692-B8AD-D8AD4E747D90}\ExtendedErrors" Value="Extended Error Service" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{6FDF2253-DD6F-4692-B8AD-D8AD4E747D90}\OLE DB Provider" Value="Simba Quickstart OLE DB Provider" Type="string" Action="write" />
+        <RegistryValue Root="HKCR" Key="CLSID\{6FDF2253-DD6F-4692-B8AD-D8AD4E747D90}\OLEDB_SERVICES" Value="-1" Type="integer" Action="write" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+      <CustomAction Id="InstallCartridge" Directory="Setup" ExeCommand="CartridgeInstaller.exe" Execute="deferred" Return="asyncWait" Impersonate="no"/>
+      <CustomAction Id="UninstallCartridge" Directory="Setup" ExeCommand="CartridgeInstaller.exe -u" Execute="deferred" Return="asyncNoWait" Impersonate="no"/>
+  </Fragment>
+</Wix>

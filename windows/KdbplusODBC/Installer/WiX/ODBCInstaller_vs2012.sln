@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2012
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ODBCInstaller_VS2012", "ODBCInstaller\ODBCInstaller_vs2012.wixproj", "{4C3184FC-3951-4F27-8C1F-318D030AD8C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C3184FC-3951-4F27-8C1F-318D030AD8C3}.Release|x64.ActiveCfg = Release|x64
+		{4C3184FC-3951-4F27-8C1F-318D030AD8C3}.Release|x64.Build.0 = Release|x64
+		{4C3184FC-3951-4F27-8C1F-318D030AD8C3}.Release|x86.ActiveCfg = Release|x86
+		{4C3184FC-3951-4F27-8C1F-318D030AD8C3}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

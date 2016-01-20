@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Defines build variables used for branding the installer. -->
+<Include>
+
+  <!-- The long manufacturer name. -->
+  <?define Manufacturer = "Simba Technologies"?>
+
+  <!-- The short manufacturer name, used in the registry .-->
+  <?define ShortVendorName = "Simba"?>
+
+  <!-- The name of registry keys associated with the driver. -->
+  <?define DriverRegistryEntryName = "QuickStart"?>
+
+  <!-- The name of the entry in the Start Menu. This differs between 32-bit and 64-bit installations. -->
+  <?if $(var.Platform) = x64 ?>
+  <?define StartMenuName = "$(var.DriverRegistryEntryName) 1.0 (64-bit)"?>
+  <?else ?>
+  <?define StartMenuName = "$(var.DriverRegistryEntryName) 1.0 (32-bit)"?>
+  <?endif ?>
+
+  <!-- The name of the web url shortcut. -->
+  <?define WebLinkName = "Simba on the Web"?>
+
+  <!-- The target of the web url shortcut. -->
+  <?define WebLinkTarget = "http://www.simba.com"?>
+
+  <!-- The version of the software -->
+  <?define Version = "9.0.0.0" ?>
+
+  <!-- The unique Product Code for the software. This differs between 32-bit and 64-bit installations. 
+       Each component in the package is given a GUID for both 32-bit and 64-bit installations.
+       When rebranding, a new set of GUIDs must be regenerated for your product. -->
+  <?if $(var.Platform) = x64 ?>
+  <?define ProductGuid = "55A34F0D-6D76-4658-98E6-7917E02FABCD" ?>
+  <?define UpgradeGuid = "F9C1D656-9381-459D-A861-C92DB811BF37" ?>
+  <?define DocsGUID = "FF804CDF-B1E1-4ABB-BECE-C33570A58E13"?>
+  <?define StartMenuGUID = "22DF1CA2-B9DA-475E-B4BE-E824D2407625"?>
+  <?define DriverLibGUID = "9CE2177E-9E0C-411E-8A73-3D6694D4B0C7"?>
+  <?define ErrorMessagesGUID = "44FC8D44-50FA-4AB1-9AB1-5ED5BA20FE8C"?>
+  <?define ThirdPartyLibGUID = "A56A4FE3-14F8-4351-9F81-DF7DAA32A8A4"?>
+  <?define DBFGUID = "BC0FBDB5-C2BE-4F42-899D-70C06D75BCE0"?>
+  <?define DllGUID = "ACEF36D2-D6B2-48CB-B432-66C0C739CC34"?>
+  <?define SetupGUID = "4DB00BC1-7F84-4544-8AA5-9A91966D5B16"?>
+  <?else ?>
+  <?define ProductGuid = "E57204F9-F15D-4DDE-B158-21D9825FA985" ?>
+  <?define UpgradeGuid = "D9C04329-E93D-43CC-AE78-0A66DF7D1B50" ?>
+  <?define DocsGUID = "18257C88-DA4E-4818-89A9-B9AE3296928E"?>
+  <?define StartMenuGUID = "18257C88-DA4E-4818-89A9-B9AE3296928E"?>
+  <?define DriverLibGUID = "362B89C7-D19E-4779-848E-228184BA1E19"?>
+  <?define ErrorMessagesGUID = "F6E44667-CCB3-473A-A761-CA462FC44095"?>
+  <?define RegistryEntriesGUID = "DA2D543F-6D10-482A-8E43-93483F08726E"?>
+  <?define ThirdPartyLibGUID = "15F79637-A193-4FF5-9628-720EE98EDD74"?>
+  <?define DBFGUID = "57AB0608-D6E0-438E-A93C-EEF1BC24DA63"?>
+  <?define DllGUID = "48844472-6434-4AF5-B2CB-018FFF196F91"?>
+  <?define SetupGUID = "04D7526E-5B5F-4059-9B8B-0CA30A296092"?>
+  <?endif ?>
+
+  <!-- The base name of the driver DLL. -->
+  <?define BaseDriverDLLName = "QuickstartDSII"?>
+
+  <!-- Specifies the directory where the product structure has been created.
+       For the Simba build systems this is usually the Build\Staging\Payload directory.
+       Redefine this variable to test the installer without using the build system. -->
+  <?define ProductDirectory = "$(sys.CURRENTDIR)..\..\.." ?>
+  <?define CartridgeInstallerDirectory = $(sys.CURRENTDIR)CartridgeInstaller\bin\Release?>
+  <?define DBFSourceDirectory = "$(var.ProductDirectory)\Setup\DBF"?>
+
+  <!-- The path to branded installer images and the EULA. The EULA must be a RTF file. -->
+  <?define EULAPath = "EULA\EULA.rtf" ?>
+  <?define TopBannerPath = "Images\banner.bmp" ?>
+  <?define WelcomeBgPath = "Images\left_bg.bmp" ?>
+
+</Include>

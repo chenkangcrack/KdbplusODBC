@@ -1,0 +1,112 @@
+﻿Build started 12/2/2015 8:58:08 AM.
+Project "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Source\QuickstartDSII_vs2012.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\CL.exe /c /I. /I.\Common /I.\Core /I.\DataEngine /I.\DataEngine\Metadata /I.\Resources /I.\Setup /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\DSI" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\DSI\Client" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\Support" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\Support\Exceptions" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\Support\TypedDataWrapper" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\SQLEngine" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\SQLEngine\AETree" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\SQLEngine\DSIExt" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include\Server" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\Expat\2.0.1\\" /Z7 /nologo /W4 /WX- /MP /Od /D UNICODE /D _UNICODE /D WIN64 /D _WIN64 /D _DEBUG /D _LIB /D SIMBA /D _CRT_SECURE_NO_WARNINGS /D _VC80_UPGRADE=0x0710 /D _USING_V110_SDK71_ /D _WINDLL /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:strict /Zc:wchar_t /Zc:forScope /GR- /Fo"x64\Debug_MTDLL\\" /Fd"x64\Debug_MTDLL\vc110.pdb" /Gd /TP /wd4245 /errorReport:prompt /Gs Common\QSTableMetadataFile.cpp Core\QSConnection.cpp Core\QSConnectionDialog.cpp Core\QSDriver.cpp Core\QSEnvironment.cpp Core\QSStatement.cpp DataEngine\QSDataEngine.cpp DataEngine\QSMetadataHelper.cpp DataEngine\QSTable.cpp DataEngine\QSTableUtilities.cpp DataEngine\QSTypeInfoMetadataSource.cpp Common\QSUtilities_Windows.cpp Common\TabbedUnicodeFileReader.cpp Main_Windows.cpp Setup\ConfigDSN.cpp Setup\QSBaseDialog.cpp Setup\QSDSNConfiguration.cpp Setup\QSLoggingDialog.cpp Setup\QSMainDialog.cpp Setup\QSResourceHelper.cpp Setup\QSSetupException.cpp Setup\QSTestResultDialog.cpp
+  QSTableMetadataFile.cpp
+Common\QSTableMetadataFile.cpp(254): warning C4267: 'argument' : conversion from 'size_t' to 'Simba::Support::simba_int32', possible loss of data
+  QSConnection.cpp
+  Core\QSConnection.cpp(59) : TODO #6: Establish A Connection.
+  Core\QSConnection.cpp(186) : TODO #4: Set the connection-wide logging details.
+  Core\QSConnection.cpp(257) : TODO #5: Check Connection Settings.
+  QSConnectionDialog.cpp
+  QSDriver.cpp
+  Core\QSDriver.cpp(22) : TODO #3: Set the driver-wide logging details.
+  Core\QSDriver.cpp(28) : TODO #9: Register Messages xml file for handling by DSIMessageSource.
+  Core\QSDriver.cpp(31) : TODO #10: Set the vendor name, which will be prepended to error messages.
+  Core\QSDriver.cpp(67) : TODO #2: Set the driver properties.
+  QSEnvironment.cpp
+  QSStatement.cpp
+  QSDataEngine.cpp
+  DataEngine\QSDataEngine.cpp(59) : TODO #7: Create and return your Metadata Sources.
+  DataEngine\QSDataEngine.cpp(118) : TODO #8: Open A Table.
+  QSMetadataHelper.cpp
+  QSTable.cpp
+  QSTableUtilities.cpp
+  QSTypeInfoMetadataSource.cpp
+  QSUtilities_Windows.cpp
+  TabbedUnicodeFileReader.cpp
+Common\TabbedUnicodeFileReader.cpp(86): warning C4267: 'argument' : conversion from 'size_t' to 'Simba::Support::simba_int32', possible loss of data
+  Main_Windows.cpp
+  Main_Windows.cpp(79) : TODO #1: Construct driver singleton.
+  ConfigDSN.cpp
+Setup\ConfigDSN.cpp(210): warning C4267: 'argument' : conversion from 'size_t' to 'Simba::Support::simba_int32', possible loss of data
+Setup\ConfigDSN.cpp(253): warning C4267: 'argument' : conversion from 'size_t' to 'Simba::Support::simba_int32', possible loss of data
+  QSBaseDialog.cpp
+  QSDSNConfiguration.cpp
+Setup\QSDSNConfiguration.cpp(553): warning C4127: conditional expression is constant
+  QSLoggingDialog.cpp
+  QSMainDialog.cpp
+  QSResourceHelper.cpp
+  Generating Code...
+  Compiling...
+  QSSetupException.cpp
+  QSTestResultDialog.cpp
+  Generating Code...
+ResourceCompile:
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _VC80_UPGRADE=0x0710 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /l"0x0409" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include" /nologo /fo"x64\Debug_MTDLL\Dialogs.res" Resources\Dialogs.rc 
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\bin\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /D _VC80_UPGRADE=0x0710 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /l"0x0409" /I"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Include" /nologo /fo"x64\Debug_MTDLL\QuickstartVersion.res" Resources\QuickstartVersion.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.dll" /NOLOGO /LIBPATH:"C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\Lib\x64\Debug_MTDLL" User32.lib AEProcessor_Debug_MTDLL.lib Core_Debug_MTDLL.lib DSIExt_Debug_MTDLL.lib Executor_Debug_MTDLL.lib Parser_Debug_MTDLL.lib SimbaDSI_Debug_MTDLL.lib SimbaODBC_Debug_MTDLL.lib SimbaSupport_Debug_MTDLL.lib shell32.lib odbccp32.lib /NODEFAULTLIB:LIBCMT /DEF:"Exports.def" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.pdb" /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.lib" /MACHINE:X64 /DEF:"exports.def" /DLL x64\Debug_MTDLL\Dialogs.res
+  x64\Debug_MTDLL\QuickstartVersion.res
+  x64\Debug_MTDLL\QSTableMetadataFile.obj
+  x64\Debug_MTDLL\QSConnection.obj
+  x64\Debug_MTDLL\QSConnectionDialog.obj
+  x64\Debug_MTDLL\QSDriver.obj
+  x64\Debug_MTDLL\QSEnvironment.obj
+  x64\Debug_MTDLL\QSStatement.obj
+  x64\Debug_MTDLL\QSDataEngine.obj
+  x64\Debug_MTDLL\QSMetadataHelper.obj
+  x64\Debug_MTDLL\QSTable.obj
+  x64\Debug_MTDLL\QSTableUtilities.obj
+  x64\Debug_MTDLL\QSTypeInfoMetadataSource.obj
+  x64\Debug_MTDLL\QSUtilities_Windows.obj
+  x64\Debug_MTDLL\TabbedUnicodeFileReader.obj
+  x64\Debug_MTDLL\Main_Windows.obj
+  x64\Debug_MTDLL\ConfigDSN.obj
+  x64\Debug_MTDLL\QSBaseDialog.obj
+  x64\Debug_MTDLL\QSDSNConfiguration.obj
+  x64\Debug_MTDLL\QSLoggingDialog.obj
+  x64\Debug_MTDLL\QSMainDialog.obj
+  x64\Debug_MTDLL\QSResourceHelper.obj
+  x64\Debug_MTDLL\QSSetupException.obj
+  x64\Debug_MTDLL\QSTestResultDialog.obj
+     Creating library ..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.lib and object ..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.exp
+SimbaODBC_Debug_MTDLL.lib(tinyxml2.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(tinyxml2.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(SignatureValidator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(SignatureValidator.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(ProductVersionValidator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(ProductVersionValidator.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(ProductPlatformValidator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(ProductPlatformValidator.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(ProductNameValidator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(ProductNameValidator.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(LicenseUtil.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(LicenseUtil.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(LicenseInfo.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(LicenseInfo.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(ExpiryDateValidator.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(ExpiryDateValidator.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(SimbaRsaKey.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(SimbaRsaKey.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(LicenseModuleProductionInfo.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(LicenseModuleProductionInfo.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+SimbaODBC_Debug_MTDLL.lib(BasicValidationInfoProvider.obj) : warning LNK4099: PDB 'vc110.pdb' was not found with 'SimbaODBC_Debug_MTDLL.lib(BasicValidationInfoProvider.obj)' or at 'C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\vc110.pdb'; linking object as if no debug info
+  QuickstartDSII_vs2012.vcxproj -> C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Source\..\Bin\x64\Debug_MTDLL\QuickstartDSII_Debug_MTDLL.dll
+PostBuildEvent:
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicuin53_64.dll" "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\"
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicudt53_64.dll" "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\"
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicuuc53_64.dll" "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\"
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\openssl\1.0.1\w2012r2\vs2012\release64md\bin\*32.dll" "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Bin\x64\Debug_MTDLL\"
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ErrorMessages\en-US\ODBCMessages.xml" ..\ErrorMessages\en-US
+  xcopy /Y /D "C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ErrorMessages\en-US\SQLEngineMessages.xml" ..\ErrorMessages\en-US
+  
+  :VCEnd
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicuin53_64.dll
+  1 File(s) copied
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicudt53_64.dll
+  1 File(s) copied
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\icu\53.1\w2012r2\vs2012\release64md\lib\sbicuuc53_64.dll
+  1 File(s) copied
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\openssl\1.0.1\w2012r2\vs2012\release64md\bin\libeay32.dll
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ThirdParty\openssl\1.0.1\w2012r2\vs2012\release64md\bin\ssleay32.dll
+  2 File(s) copied
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ErrorMessages\en-US\ODBCMessages.xml
+  1 File(s) copied
+  C:\Simba Technologies\SimbaEngineSDK\9.5\DataAccessComponents\ErrorMessages\en-US\SQLEngineMessages.xml
+  1 File(s) copied
+Done Building Project "C:\Simba Technologies\SimbaEngineSDK\9.5\Examples\Source\Quickstart\Source\QuickstartDSII_vs2012.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:38.34

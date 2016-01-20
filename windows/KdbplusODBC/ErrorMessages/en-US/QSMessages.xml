@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Messages [
+    <!ELEMENT Messages (Package*)>
+
+    <!ELEMENT Package (Error*)>
+    <!ATTLIST Package ID CDATA #REQUIRED>
+    <!ATTLIST Package DefaultComponent CDATA #REQUIRED>
+
+    <!ELEMENT Error (#PCDATA)>
+    <!ATTLIST Error Key ID #REQUIRED>
+    <!ATTLIST Error Component CDATA #IMPLIED>
+    <!ATTLIST Error NativeErrorCode CDATA #REQUIRED>
+    <!ATTLIST Error Params CDATA "0">
+]>
+
+<Messages>
+    <!-- Package ID corresponds to the QS_ERROR constant defined in Quickstart.h -->
+    <Package ID="100" DefaultComponent="Quickstart">
+        <!-- Error thrown when attempting to map QS type to SQL type. -->
+        <Error Key="QSUnknownType" Params="1" NativeErrorCode="5">Unknown Quickstart data type: %1%</Error>
+
+        <!-- Error thrown when attempting to access an invalid column. -->
+        <Error Key="QSInvalidColumnIndex" Params="1" NativeErrorCode="6">Invalid column index: %1%.</Error>
+
+        <!-- Error thrown when an error occurs while converting data in the DSII. -->
+        <Error Key="QSConvError" NativeErrorCode="7">Error converting Quickstart data to SQL data.</Error>
+
+        <!-- Error thrown when an error occurs while opening a table file. -->
+        <Error Key="QSFileOpenError" Params="1" NativeErrorCode="8">Error attempting to open file: %1%.</Error>
+
+        <!-- Error thrown when an error occurs while reading from a table . -->
+        <Error Key="QSFileReadError" Params="1" NativeErrorCode="9">Error attempting to read data from file: %1%.</Error>
+
+        <!-- Error thrown when the DBF path isn't found in the registry. -->
+        <Error Key="QSDbfNotFound" NativeErrorCode="10">DBF key not found in connection string.</Error>
+
+        <!-- Error thrown when the file is an invalid format. -->
+        <Error Key="QSInvalidFileFormat" Params="1" NativeErrorCode="11">The selected file (%1%) is not encoded using UTF16-LE.</Error>
+
+        <!-- Error thrown when an attempt is made to retrieve data for a row that has not been processed. -->
+        <Error Key="QSRowNotProcessed" NativeErrorCode="12">GetData() called before MoveFirst().</Error>
+
+        <!-- Error thrown when parsing a table metadata file fails. -->
+        <Error Key="QSTableMetadataParseFormatError" Params="3" NativeErrorCode="15">Unable to parse table metadata file %1%: %2% at line %3%</Error>
+
+        <!-- Error thrown when a table metadata file has invalid attributes. -->
+        <Error Key="QSTableMetadataInvalidFormat" NativeErrorCode="16">Invalid table metadata file format.</Error>
+
+        <!-- Error thrown when the table name does not exist. -->
+        <Error Key="QSTableDoesNotExist" Params="1" NativeErrorCode="18">The table '%1%' does not exist.</Error>
+
+        <!-- Warning posted when a row count is requested via SQLRowCount. -->
+        <Error Key="QSRowCountUnknown" NativeErrorCode="19">The row count is unknown.</Error>
+
+        <!-- Error thrown when cannot find custom property. -->
+        <Error Key="CustomPropNotFound" Params="1" NativeErrorCode="20">Custom property not found: %1%</Error>
+
+        <!-- Error thrown when cannot find custom property key. -->
+        <Error Key="CustomPropKeyNotFound" Params="1" NativeErrorCode="21">Custom property key not found: %1%</Error>
+      
+    <!-- Configuration dialog error messages. -->
+        <!-- Error thrown when an error occurs while trying to load a string resource for the dialog. -->
+        <Error Key="QSStringResourceError" Params="1" NativeErrorCode="1020">String resource %1% not found.</Error>
+
+        <!-- Error thrown when an error occurs while trying to load a cursor resource.. -->
+        <Error Key="QSCursorResourceError" Params="1" NativeErrorCode="1030">An error occurred while attempting to load a cursor: %1%</Error>
+    </Package>
+</Messages>

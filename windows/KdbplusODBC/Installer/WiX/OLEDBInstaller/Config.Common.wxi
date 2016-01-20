@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!-- Defines common build variables used for handling platform dependencies. -->
+  <?define BinariesDirectory = "Bin"?>
+  <?define UninstallerExe = "msiexec.exe"?>
+  <?define ConfigurationFolder = "Debug"?>
+
+  <?if $(var.Platform) = x64 ?>
+  <?define Win64 = "yes"?>
+  <?define PlatformProgramFilesFolder = "ProgramFiles64Folder" ?>
+  <?define PlatformSystemFolder = "System64Folder" ?>
+  <?define ProcessorArchitecture = "x64"?>
+  <?define ICUSuffix = "64"?>
+  <?define SrcBinariesDirectory = "$(var.BinariesDirectory)\x64\$(var.ConfigurationFolder)"?>
+  <?define UninstallerPath = "[System64Folder]$(var.UninstallerExe)"?>
+  <?define SoftwareSubKey = "Software"?>
+  <?else ?>
+  <?define Win64 = "no"?>
+  <?define PlatformProgramFilesFolder = "ProgramFilesFolder" ?>
+  <?define PlatformSystemFolder = "SystemFolder" ?>
+  <?define ProcessorArchitecture = "x86"?>
+  <?define ICUSuffix = "32"?>
+  <?define SrcBinariesDirectory = "$(var.BinariesDirectory)\Win32\$(var.ConfigurationFolder)"?>
+  <?define UninstallerPath = "[SystemFolder]$(var.UninstallerExe)"?>
+  <?define SoftwareSubKey = "Software\Wow6432Node"?>
+  <?endif ?>
+</Include>
